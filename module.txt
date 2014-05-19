@@ -1,0 +1,9 @@
+{
+    "id" : "Breathing",
+    "version" : "0.1.0",
+    "author" : "",
+    "displayName" : "Breathing",
+    "description" : "",
+    "dependencies" : [],
+    "isServerSideOnly" : false
+}
