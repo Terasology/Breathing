@@ -17,7 +17,7 @@ package org.terasology.breathing.ui;
 
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.engine.Time;
-import org.terasology.logic.drowning.DrowningComponent;
+import org.terasology.breathing.component.DrowningComponent;
 import org.terasology.logic.players.LocalPlayer;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.rendering.nui.databinding.Binding;

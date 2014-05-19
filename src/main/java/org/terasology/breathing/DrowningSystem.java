@@ -15,6 +15,8 @@
  */
 package org.terasology.breathing;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.terasology.breathing.component.DrowningComponent;
 import org.terasology.breathing.component.DrownsComponent;
 import org.terasology.breathing.component.UnbreathableBlockComponent;
@@ -42,7 +44,7 @@ import org.terasology.world.WorldProvider;
  */
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class DrowningSystem extends BaseComponentSystem implements UpdateSubscriberSystem {
-
+    private static final Logger logger = LoggerFactory.getLogger(DrowningSystem.class);
     // TODO on player spawn, attach the drowning component
 
     @In
@@ -86,7 +88,6 @@ public class DrowningSystem extends BaseComponentSystem implements UpdateSubscri
     public void onPlayerFirstSpawn(OnPlayerSpawnedEvent event, EntityRef player) {
         if (!player.hasComponent(DrownsComponent.class)) {
             DrownsComponent drowns = new DrownsComponent();
-            System.out.println("Added!");
             player.addComponent(drowns);
         }
     }
