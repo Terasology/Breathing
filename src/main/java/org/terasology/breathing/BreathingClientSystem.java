@@ -31,6 +31,6 @@ public class BreathingClientSystem extends BaseComponentSystem {
 
     @Override
     public void preBegin() {
-        nuiManager.getHUD().addHUDElement("Hunger:HungerAndThirst");
+        nuiManager.getHUD().addHUDElement("Breathing:breathing");
     }
 }

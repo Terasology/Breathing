@@ -15,28 +15,12 @@
  */
 package org.terasology.breathing;
 
-import org.terasology.engine.Time;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.hunger.component.HungerComponent;
-import org.terasology.hunger.component.ThirstComponent;
-import org.terasology.registry.CoreRegistry;
-
 /**
- * @author Marcin Sciesinski <marcins78@gmail.com>
+ * @author Jtsessions, based on the Hunger module
  */
+
 public final class BreathingUtils {
     private BreathingUtils() {
-    }
-
-    public static float getBreathForEntity(EntityRef entity) {
-        HungerComponent hunger = entity.getComponent(HungerComponent.class);
-        if (hunger == null) {
-            return 0;
-        }
-
-        long gameTime = CoreRegistry.get(Time.class).getGameTimeInMs();
-        float foodDecay = hunger.foodDecayPerSecond * (gameTime - hunger.lastCalculationTime) / 1000f;
-        return Math.max(0, hunger.lastCalculatedFood - foodDecay);
     }
 
 }

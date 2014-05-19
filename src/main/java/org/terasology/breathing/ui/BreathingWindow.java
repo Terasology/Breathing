@@ -16,49 +16,40 @@
 package org.terasology.breathing.ui;
 
 import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.hunger.HungerAndThirstUtils;
-import org.terasology.hunger.component.HungerComponent;
-import org.terasology.hunger.component.ThirstComponent;
+import org.terasology.engine.Time;
+import org.terasology.logic.drowning.DrowningComponent;
 import org.terasology.logic.players.LocalPlayer;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.rendering.nui.databinding.Binding;
 import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
 import org.terasology.rendering.nui.widgets.UILoadBar;
+import org.terasology.registry.In;
 
 /**
  * @author Marcin Sciesinski <marcins78@gmail.com>
  */
 public class BreathingWindow extends CoreHudWidget {
+
+    @In
+    private Time time;
+
     @Override
     public void initialise() {
-        UILoadBar hunger = find("hunger", UILoadBar.class);
-        hunger.bindValue(
+        UILoadBar breathing = find("breathing", UILoadBar.class);
+        breathing.bindValue(
                 new Binding<Float>() {
                     @Override
                     public Float get() {
                         EntityRef character = CoreRegistry.get(LocalPlayer.class).getCharacterEntity();
-                        HungerComponent hunger = character.getComponent(HungerComponent.class);
-                        return HungerAndThirstUtils.getHungerForEntity(character) / hunger.maxFoodCapacity;
+                        DrowningComponent breathingComponent = character.getComponent(DrowningComponent.class);
+                        return breathingComponent.getRemainingBreath(time.getGameTimeInMs());
                     }
 
                     @Override
                     public void set(Float value) {
                     }
-                });
+                }
+        );
 
-        UILoadBar thirst = find("thirst", UILoadBar.class);
-        thirst.bindValue(
-                new Binding<Float>() {
-                    @Override
-                    public Float get() {
-                        EntityRef character = CoreRegistry.get(LocalPlayer.class).getCharacterEntity();
-                        ThirstComponent thirst = character.getComponent(ThirstComponent.class);
-                        return HungerAndThirstUtils.getThirstForEntity(character) / thirst.maxWaterCapacity;
-                    }
-
-                    @Override
-                    public void set(Float value) {
-                    }
-                });
     }
 }

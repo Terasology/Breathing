@@ -15,6 +15,9 @@
  */
 package org.terasology.breathing;
 
+import org.terasology.breathing.component.DrowningComponent;
+import org.terasology.breathing.component.DrownsComponent;
+import org.terasology.breathing.component.UnbreathableBlockComponent;
 import org.terasology.engine.Time;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
@@ -28,6 +31,7 @@ import org.terasology.logic.characters.events.OnEnterBlockEvent;
 import org.terasology.logic.health.DoDamageEvent;
 import org.terasology.logic.health.EngineDamageTypes;
 import org.terasology.logic.location.LocationComponent;
+import org.terasology.logic.players.event.OnPlayerSpawnedEvent;
 import org.terasology.math.Vector3i;
 import org.terasology.registry.In;
 import org.terasology.world.BlockEntityRegistry;
@@ -38,6 +42,8 @@ import org.terasology.world.WorldProvider;
  */
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class DrowningSystem extends BaseComponentSystem implements UpdateSubscriberSystem {
+
+    // TODO on player spawn, attach the drowning component
 
     @In
     private BlockEntityRegistry blockEntityProvider;
@@ -73,6 +79,15 @@ public class DrowningSystem extends BaseComponentSystem implements UpdateSubscri
                     entity.saveComponent(drowning);
                 }
             }
+        }
+    }
+
+    @ReceiveEvent
+    public void onPlayerFirstSpawn(OnPlayerSpawnedEvent event, EntityRef player) {
+        if (!player.hasComponent(DrownsComponent.class)) {
+            DrownsComponent drowns = new DrownsComponent();
+            System.out.println("Added!");
+            player.addComponent(drowns);
         }
     }
 
