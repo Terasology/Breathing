@@ -5,19 +5,28 @@
         "type": "relativeLayout",
         "contents": [
             {
-                "type": "UILoadBar",
-                "id": "breathing",
-                "animate": false,
-                "fillTexture": "Hunger:hungerBar",
-                "layoutInfo": {
-                    "width": 200,
-                    "height": 10,
-                    "position-horizontal-center": {
-                        "offset": -150
+                "type" : "UIIconBar",
+                "id" : "breathBar",
+                "icon" : "engine:icons.bubble",
+                "family" : "breathBar",
+                "emptyIcon" : "engine:icons.burstBubble",
+                "halfIconMode" : "shrink",
+                "spacing" : 2,
+                "maxIcons" : 10,
+                "layoutInfo" : {
+                    "use-content-width" : true,
+                    "use-content-height" : true,
+                    "position-left" : {
+                        "target" : "CENTER"
                     },
-                    "position-bottom": {
-                        "target": "BOTTOM",
-                        "offset": 80
+                    "position-right" : {
+                        "target" : "RIGHT",
+                        "widget" : "toolbar"
+                    },
+                    "position-bottom" : {
+                        "target" : "TOP",
+                        "widget" : "toolbar",
+                        "offset" : 1
                     }
                 }
             }

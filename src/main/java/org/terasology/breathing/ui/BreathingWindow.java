@@ -15,15 +15,16 @@
  */
 package org.terasology.breathing.ui;
 
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.engine.Time;
 import org.terasology.breathing.component.DrowningComponent;
+import org.terasology.breathing.component.DrownsComponent;
+import org.terasology.engine.Time;
+import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.logic.players.LocalPlayer;
 import org.terasology.registry.CoreRegistry;
-import org.terasology.rendering.nui.databinding.Binding;
-import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
-import org.terasology.rendering.nui.widgets.UILoadBar;
 import org.terasology.registry.In;
+import org.terasology.rendering.nui.databinding.ReadOnlyBinding;
+import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
+import org.terasology.rendering.nui.widgets.UIIconBar;
 
 /**
  * @author Marcin Sciesinski <marcins78@gmail.com>
@@ -35,21 +36,29 @@ public class BreathingWindow extends CoreHudWidget {
 
     @Override
     public void initialise() {
-        UILoadBar breathing = find("breathing", UILoadBar.class);
-        breathing.bindValue(
-                new Binding<Float>() {
-                    @Override
-                    public Float get() {
-                        EntityRef character = CoreRegistry.get(LocalPlayer.class).getCharacterEntity();
-                        DrowningComponent breathingComponent = character.getComponent(DrowningComponent.class);
-                        return breathingComponent.getRemainingBreath(time.getGameTimeInMs());
-                    }
 
-                    @Override
-                    public void set(Float value) {
-                    }
+        UIIconBar breathBar = find("breathBar", UIIconBar.class);
+        breathBar.bindVisible(new ReadOnlyBinding<Boolean>() {
+            @Override
+            public Boolean get() {
+                EntityRef characterEntity =  CoreRegistry.get(LocalPlayer.class).getCharacterEntity();
+                return characterEntity.hasComponent(DrowningComponent.class) && characterEntity.hasComponent(DrownsComponent.class);
+            }
+        });
+        breathBar.setMaxValue(1.0f);
+        breathBar.bindValue(new ReadOnlyBinding<Float>() {
+            @Override
+            public Float get() {
+                EntityRef characterEntity = CoreRegistry.get(LocalPlayer.class).getCharacterEntity();
+                DrowningComponent drowningComponent = characterEntity.getComponent(DrowningComponent.class);
+
+                if (drowningComponent != null) {
+                    return drowningComponent.getRemainingBreath(time.getGameTimeInMs());
                 }
-        );
+                return 0f;
+            }
+        });
 
     }
+
 }
