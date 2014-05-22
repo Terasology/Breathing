@@ -124,8 +124,8 @@ public class DrowningSystem extends BaseComponentSystem implements UpdateSubscri
         for (int i = 0; i < drowns.breathes.size(); i++) {
             String breathableMaterial = drowns.breathes.get(i);
 
-            if (breathableMaterial.equals("Oxygen") && block.equals(BlockManager.getAir()) ||
-                breathableMaterial.equals("Water") && block.equals(blockManager.getBlock("core:water"))) {
+            if (breathableMaterial.equalsIgnoreCase("Oxygen") && block.equals(BlockManager.getAir()) ||
+                breathableMaterial.equalsIgnoreCase("Water") && block.equals(blockManager.getBlock("core:water"))) {
 
                 return true;
             }
