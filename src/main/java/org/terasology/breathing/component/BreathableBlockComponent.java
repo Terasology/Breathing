@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 MovingBlocks
+ * Copyright 2014 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,23 +15,7 @@
  */
 package org.terasology.breathing.component;
 
-import com.google.common.collect.Lists;
 import org.terasology.entitySystem.Component;
 
-import java.util.List;
-
-/**
- * Use to signify an entity is subject to org.terasology.breathing
- *
- * @author ancaplinger
- */
-public class DrownsComponent implements Component {
-
-    public long breathCapacity = 15000;
-    public float breathRechargeRate = 2.0f;
-    public int timeBetweenDrownDamage = 1000;
-    public int drownDamage = 10;
-
-    public List<String> breathes = Lists.newArrayList();
-
+public class BreathableBlockComponent implements Component {
 }

@@ -19,7 +19,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.terasology.breathing.component.DrowningComponent;
 import org.terasology.breathing.component.DrownsComponent;
-import org.terasology.breathing.component.UnbreathableBlockComponent;
 import org.terasology.engine.Time;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
@@ -33,11 +32,13 @@ import org.terasology.logic.characters.events.OnEnterBlockEvent;
 import org.terasology.logic.health.DoDamageEvent;
 import org.terasology.logic.health.EngineDamageTypes;
 import org.terasology.logic.location.LocationComponent;
-import org.terasology.logic.players.event.OnPlayerSpawnedEvent;
 import org.terasology.math.Vector3i;
+import org.terasology.registry.CoreRegistry;
 import org.terasology.registry.In;
 import org.terasology.world.BlockEntityRegistry;
 import org.terasology.world.WorldProvider;
+import org.terasology.world.block.Block;
+import org.terasology.world.block.BlockManager;
 
 /**
  * @author Immortius
@@ -84,20 +85,12 @@ public class DrowningSystem extends BaseComponentSystem implements UpdateSubscri
         }
     }
 
-    @ReceiveEvent
-    public void onPlayerFirstSpawn(OnPlayerSpawnedEvent event, EntityRef player) {
-        if (!player.hasComponent(DrownsComponent.class)) {
-            DrownsComponent drowns = new DrownsComponent();
-            player.addComponent(drowns);
-        }
-    }
-
     @ReceiveEvent(components = {DrownsComponent.class})
     public void onEnterBlock(OnEnterBlockEvent event, EntityRef entity, DrownsComponent drowns) {
         // only trigger org.terasology.breathing if liquid is covering the top of the character (aka,  the head)
         if (isHeadLevel(event.getCharacterRelativePosition(), entity)) {
             DrowningComponent drowning = entity.getComponent(DrowningComponent.class);
-            if (event.getNewBlock().getEntity().hasComponent(UnbreathableBlockComponent.class)) {
+            if (!blockIsBreathable(entity, event.getNewBlock())) {
                 if (drowning != null) {
                     if (drowning.isBreathing) {
                         setBreathing(false, drowning, drowns);
@@ -120,6 +113,24 @@ public class DrowningSystem extends BaseComponentSystem implements UpdateSubscri
     private boolean isHeadLevel(Vector3i relativePosition, EntityRef entity) {
         CharacterMovementComponent characterMovementComponent = entity.getComponent(CharacterMovementComponent.class);
         return (int) Math.ceil(characterMovementComponent.height) - 1 == relativePosition.y;
+    }
+
+    private boolean blockIsBreathable(EntityRef entity, Block block) {
+        // TODO Once blocks become prefabs/entities, check to see if entity can breathe any of the block's elements
+        // This is simply a placeholder for now
+        DrownsComponent drowns = entity.getComponent(DrownsComponent.class);
+        BlockManager blockManager = CoreRegistry.get(BlockManager.class);
+
+        for (int i = 0; i < drowns.breathes.size(); i++) {
+            String breathableMaterial = drowns.breathes.get(i);
+
+            if (breathableMaterial.equals("Oxygen") && block.equals(BlockManager.getAir()) ||
+                breathableMaterial.equals("Water") && block.equals(blockManager.getBlock("core:water"))) {
+
+                return true;
+            }
+        }
+        return false;
     }
 
     private void setBreathing(boolean isBreathing, DrowningComponent drowning, DrownsComponent drowns) {
