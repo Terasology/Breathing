@@ -17,5 +17,9 @@ package org.terasology.breathing.component;
 
 import org.terasology.entitySystem.Component;
 
+/**
+ * @author Josephtsessions
+ * Future class for representing the composition of blocks for breathing purposes, IE smoke is 50% oxygen.
+ */
 public class BreathableBlockComponent implements Component {
 }

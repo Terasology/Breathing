@@ -22,7 +22,7 @@ import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
 
 /**
- * @author Marcin Sciesinski <marcins78@gmail.com>
+ * @author Josephtsessions, based on hunger/thirst module UI registration code
  */
 @RegisterSystem(RegisterMode.CLIENT)
 public class BreathingClientSystem extends BaseComponentSystem {

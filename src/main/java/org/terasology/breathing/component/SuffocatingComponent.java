@@ -20,9 +20,9 @@ import org.terasology.network.FieldReplicateType;
 import org.terasology.network.Replicate;
 
 /**
- * @author Immortius
+ * @author Josephtsessions, based on engine drowning code
  */
-public class DrowningComponent implements Component {
+public class SuffocatingComponent implements Component {
 
     @Replicate(FieldReplicateType.SERVER_TO_OWNER)
     public boolean isBreathing;
@@ -31,11 +31,11 @@ public class DrowningComponent implements Component {
     @Replicate(FieldReplicateType.SERVER_TO_OWNER)
     public long startTime;
     @Replicate(FieldReplicateType.SERVER_TO_OWNER)
-    public long nextDrownDamageTime;
+    public long nextSuffocateDamageTime;
 
     public float getRemainingBreath(long gameTime) {
         // TODO create a logarithmic (diminishing returns) formula for breath recovery that gives faster recharge
-        // at lower remaining breath
+        // at lower remaining breath, but with more reasonable recovery rates. This one is too fast too early.
         float capacity = (float) (endTime - startTime);
         float current = (gameTime - startTime);
 

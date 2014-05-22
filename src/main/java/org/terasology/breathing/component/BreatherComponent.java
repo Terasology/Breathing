@@ -23,14 +23,14 @@ import java.util.List;
 /**
  * Use to signify an entity is subject to org.terasology.breathing
  *
- * @author ancaplinger
+ * @author Josephtsessions, based on engine drowning code
  */
-public class DrownsComponent implements Component {
+public class BreatherComponent implements Component {
 
     public long breathCapacity = 15000;
     public float breathRechargeRate = 2.0f;
-    public int timeBetweenDrownDamage = 1000;
-    public int drownDamage = 10;
+    public int timeBetweenSuffocateDamage = 1000;
+    public int suffocateDamage = 10;
 
     public List<String> breathes = Arrays.asList("Oxygen");
 

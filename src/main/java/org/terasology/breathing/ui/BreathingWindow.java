@@ -17,8 +17,8 @@ package org.terasology.breathing.ui;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.terasology.breathing.component.DrowningComponent;
-import org.terasology.breathing.component.DrownsComponent;
+import org.terasology.breathing.component.BreatherComponent;
+import org.terasology.breathing.component.SuffocatingComponent;
 import org.terasology.engine.Time;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.logic.players.LocalPlayer;
@@ -29,7 +29,7 @@ import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
 import org.terasology.rendering.nui.widgets.UIIconBar;
 
 /**
- * @author Marcin Sciesinski <marcins78@gmail.com>
+ * @author Josephtsessions, based on hunger/thirst module UI registration code
  */
 public class BreathingWindow extends CoreHudWidget {
 
@@ -46,7 +46,7 @@ public class BreathingWindow extends CoreHudWidget {
             @Override
             public Boolean get() {
                 EntityRef characterEntity =  CoreRegistry.get(LocalPlayer.class).getCharacterEntity();
-                return characterEntity.hasComponent(DrowningComponent.class) && characterEntity.hasComponent(DrownsComponent.class);
+                return characterEntity.hasComponent(SuffocatingComponent.class) && characterEntity.hasComponent(BreatherComponent.class);
             }
         });
         breathBar.setMaxValue(1.0f);
@@ -54,11 +54,10 @@ public class BreathingWindow extends CoreHudWidget {
             @Override
             public Float get() {
                 EntityRef characterEntity = CoreRegistry.get(LocalPlayer.class).getCharacterEntity();
-                DrowningComponent drowningComponent = characterEntity.getComponent(DrowningComponent.class);
+                SuffocatingComponent suffocatingComponent = characterEntity.getComponent(SuffocatingComponent.class);
 
-                if (drowningComponent != null) {
-                    logger.info(drowningComponent.getRemainingBreath(time.getGameTimeInMs()) + "%");
-                    return drowningComponent.getRemainingBreath(time.getGameTimeInMs());
+                if (suffocatingComponent != null) {
+                    return suffocatingComponent.getRemainingBreath(time.getGameTimeInMs());
                 }
                 return 0f;
             }
