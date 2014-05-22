@@ -15,9 +15,9 @@
  */
 package org.terasology.breathing.component;
 
-import com.google.common.collect.Lists;
 import org.terasology.entitySystem.Component;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -32,6 +32,6 @@ public class DrownsComponent implements Component {
     public int timeBetweenDrownDamage = 1000;
     public int drownDamage = 10;
 
-    public List<String> breathes = Lists.newArrayList();
+    public List<String> breathes = Arrays.asList("Oxygen");
 
 }
