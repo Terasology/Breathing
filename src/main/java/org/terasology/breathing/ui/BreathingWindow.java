@@ -15,6 +15,8 @@
  */
 package org.terasology.breathing.ui;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.terasology.breathing.component.DrowningComponent;
 import org.terasology.breathing.component.DrownsComponent;
 import org.terasology.engine.Time;
@@ -30,6 +32,8 @@ import org.terasology.rendering.nui.widgets.UIIconBar;
  * @author Marcin Sciesinski <marcins78@gmail.com>
  */
 public class BreathingWindow extends CoreHudWidget {
+
+    private static final Logger logger = LoggerFactory.getLogger(BreathingWindow.class);
 
     @In
     private Time time;
@@ -53,6 +57,7 @@ public class BreathingWindow extends CoreHudWidget {
                 DrowningComponent drowningComponent = characterEntity.getComponent(DrowningComponent.class);
 
                 if (drowningComponent != null) {
+                    logger.info(drowningComponent.getRemainingBreath(time.getGameTimeInMs()) + "%");
                     return drowningComponent.getRemainingBreath(time.getGameTimeInMs());
                 }
                 return 0f;

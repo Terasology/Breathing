@@ -13,22 +13,25 @@
                 "halfIconMode" : "shrink",
                 "spacing" : 2,
                 "maxIcons" : 10,
+
                 "layoutInfo" : {
-                    "use-content-width" : true,
-                    "use-content-height" : true,
-                    "position-left" : {
-                        "target" : "CENTER"
-                    },
-                    "position-right" : {
-                        "target" : "RIGHT",
-                        "widget" : "toolbar"
-                    },
-                    "position-bottom" : {
-                        "target" : "TOP",
-                        "widget" : "toolbar",
-                        "offset" : 1
-                    }
+                                    "use-content-width" : true,
+                                    "use-content-height" : true,
+                                    "position-left" : {
+                                        "target" : "CENTER"
+                                    },
+                                    "position-right" : {
+                                        "target" : "RIGHT",
+                                        "widget" : "toolbar"
+                                    },
+                                    "position-bottom" : {
+                                        "target" : "TOP",
+                                        "widget" : "toolbar",
+                                        "offset" : 1
+                                    }
                 }
+
+
             }
         ]
     }

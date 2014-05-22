@@ -34,9 +34,16 @@ public class DrowningComponent implements Component {
     public long nextDrownDamageTime;
 
     public float getRemainingBreath(long gameTime) {
-        long capacity = (endTime - startTime);
-        float percentage = (gameTime - startTime) / (float) capacity;
-        if (!isBreathing) {
+        // TODO create a logarithmic (diminishing returns) formula for breath recovery that gives faster recharge
+        // at lower remaining breath
+        float capacity = (float) (endTime - startTime);
+        float current = (gameTime - startTime);
+
+        float percentage;
+        if (isBreathing) {
+            percentage = (float) (Math.log(current) / Math.log(capacity));
+        } else {
+            percentage = current / capacity;
             percentage = 1.0f - percentage;
         }
         return Math.min(Math.max(percentage, 0f), 1f);

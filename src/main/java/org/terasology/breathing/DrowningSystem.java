@@ -91,7 +91,6 @@ public class DrowningSystem extends BaseComponentSystem implements UpdateSubscri
         if (isHeadLevel(event.getCharacterRelativePosition(), entity)) {
             DrowningComponent drowning = entity.getComponent(DrowningComponent.class);
             if (!blockIsBreathable(entity, event.getNewBlock())) {
-                logger.info("Cannot breath this block: " + event.getNewBlock().getDisplayName());
                 if (drowning != null) {
                     if (drowning.isBreathing) {
                         setBreathing(false, drowning, drowns);
