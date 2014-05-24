@@ -31,9 +31,9 @@ import org.terasology.rendering.nui.widgets.UIIconBar;
 /**
  * @author Josephtsessions, based on hunger/thirst module UI registration code
  */
-public class BreathingWindow extends CoreHudWidget {
+public class BreathingBar extends CoreHudWidget {
 
-    private static final Logger logger = LoggerFactory.getLogger(BreathingWindow.class);
+    private static final Logger logger = LoggerFactory.getLogger(BreathingBar.class);
 
     @In
     private Time time;
