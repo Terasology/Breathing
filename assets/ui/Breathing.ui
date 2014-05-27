@@ -1,5 +1,5 @@
 {
-    "type": "BreathingWindow",
+    "type": "BreathingBar",
     "skin": "HUD",
     "contents": {
         "type": "relativeLayout",
