@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 MovingBlocks
+ * Copyright 2015 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import org.terasology.logic.characters.events.OnEnterBlockEvent;
 import org.terasology.logic.health.DoDamageEvent;
 import org.terasology.logic.health.EngineDamageTypes;
 import org.terasology.logic.location.LocationComponent;
-import org.terasology.math.Vector3i;
+import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.registry.In;
 import org.terasology.world.BlockEntityRegistry;
@@ -123,8 +123,8 @@ public class BreathingSystem extends BaseComponentSystem implements UpdateSubscr
         for (int i = 0; i < breather.breathes.size(); i++) {
             String breathableMaterial = breather.breathes.get(i);
 
-            if (breathableMaterial.equalsIgnoreCase("Oxygen") && block.equals(BlockManager.getAir()) ||
-                breathableMaterial.equalsIgnoreCase("Water") && block.equals(blockManager.getBlock("core:water"))) {
+            if (breathableMaterial.equalsIgnoreCase("Oxygen") && block.equals(BlockManager.getAir())
+                    || breathableMaterial.equalsIgnoreCase("Water") && block.equals(blockManager.getBlock("core:water"))) {
 
                 return true;
             }
