@@ -40,9 +40,6 @@ import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
 
-/**
- * @author Josephtsessions, based on Immortius's drowning code
- */
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class BreathingSystem extends BaseComponentSystem implements UpdateSubscriberSystem {
     private static final Logger logger = LoggerFactory.getLogger(BreathingSystem.class);

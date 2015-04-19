@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 MovingBlocks
+ * Copyright 2015 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,9 +19,6 @@ import org.terasology.entitySystem.Component;
 import org.terasology.network.FieldReplicateType;
 import org.terasology.network.Replicate;
 
-/**
- * @author Josephtsessions, based on engine drowning code
- */
 public class SuffocatingComponent implements Component {
 
     @Replicate(FieldReplicateType.SERVER_TO_OWNER)

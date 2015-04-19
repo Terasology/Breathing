@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 MovingBlocks
+ * Copyright 2015 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,6 @@ import java.util.List;
 
 /**
  * Use to signify an entity is subject to org.terasology.breathing
- *
- * @author Josephtsessions, based on engine drowning code
  */
 public class BreatherComponent implements Component {
 

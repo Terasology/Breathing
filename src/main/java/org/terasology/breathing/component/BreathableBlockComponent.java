@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 MovingBlocks
+ * Copyright 2015 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package org.terasology.breathing.component;
 import org.terasology.entitySystem.Component;
 
 /**
- * @author Josephtsessions
  * Future class for representing the composition of blocks for breathing purposes, IE smoke is 50% oxygen.
  */
 public class BreathableBlockComponent implements Component {
