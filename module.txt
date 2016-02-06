@@ -4,6 +4,11 @@
     "author" : "Joseph Sessions <Josephtsessions@gmail.com>",
     "displayName" : "Breathing",
     "description" : "Allows entities to breathe and suffocate based on what mediums they are in.",
-    "dependencies" : [],
+    "dependencies" : [
+         {
+             "id" : "Core",
+             "minVersion" : "1.0.0"
+         }
+     ],
     "isServerSideOnly" : false
 }
