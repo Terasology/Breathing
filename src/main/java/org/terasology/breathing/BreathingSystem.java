@@ -29,8 +29,8 @@ import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.entitySystem.systems.UpdateSubscriberSystem;
 import org.terasology.logic.characters.CharacterMovementComponent;
 import org.terasology.logic.characters.events.OnEnterBlockEvent;
-import org.terasology.logic.health.event.DoDamageEvent;
 import org.terasology.logic.health.EngineDamageTypes;
+import org.terasology.logic.health.event.DoDamageEvent;
 import org.terasology.logic.location.LocationComponent;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
@@ -121,7 +121,7 @@ public class BreathingSystem extends BaseComponentSystem implements UpdateSubscr
             String breathableMaterial = breather.breathes.get(i);
 
             if (breathableMaterial.equalsIgnoreCase("Oxygen") && block.equals(blockManager.getBlock(BlockManager.AIR_ID))
-                    || breathableMaterial.equalsIgnoreCase("Water") && block.equals(blockManager.getBlock("core:water"))) {
+                    || breathableMaterial.equalsIgnoreCase("Water") && block.equals(blockManager.getBlock("CoreBlocks:Water"))) {
 
                 return true;
             }
