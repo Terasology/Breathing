@@ -1,11 +1,10 @@
 {
     "id" : "Breathing",
-    "version" : "0.1.2-SNAPSHOT",
+    "version" : "0.2.0",
     "author" : "Joseph Sessions <Josephtsessions@gmail.com>",
     "displayName" : "Breathing",
     "description" : "Allows entities to breathe and suffocate based on what mediums they are in.",
-    "dependencies" : [
-        {"id" : "Core", "minVersion" : "3.0.0"}
-    ],
-    "isServerSideOnly" : false
+    "dependencies" : [],
+    "isServerSideOnly" : false,
+    "isLibrary": true
 }
