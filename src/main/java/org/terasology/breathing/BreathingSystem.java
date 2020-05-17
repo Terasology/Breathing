@@ -121,7 +121,7 @@ public class BreathingSystem extends BaseComponentSystem implements UpdateSubscr
             String breathableMaterial = breather.breathes.get(i);
 
             if (breathableMaterial.equalsIgnoreCase("Oxygen") && block.equals(blockManager.getBlock(BlockManager.AIR_ID))
-                    || breathableMaterial.equalsIgnoreCase("Water") && block.equals(blockManager.getBlock("CoreBlocks:Water"))) {
+                    || breathableMaterial.equalsIgnoreCase("Water") && block.equals(blockManager.getBlock("CoreAssets:Water"))) {
 
                 return true;
             }
