@@ -5,6 +5,7 @@
     "displayName": "Breathing",
     "description": "Allows entities to breathe and suffocate based on what mediums they are in.",
     "dependencies": [
+        { "id": "CoreAssets", "minVersion": "2.0.0" },
         { "id": "Health", "minVersion": "1.0.0" }
     ],
     "isServerSideOnly": false,
