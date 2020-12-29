@@ -15,6 +15,7 @@
  */
 package org.terasology.breathing;
 
+import org.joml.Vector3f;
 import org.joml.Vector3i;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +72,7 @@ public class BreathingSystem extends BaseComponentSystem implements UpdateSubscr
             } else {
                 if (gameTime > suffocating.nextSuffocateDamageTime) {
                     // damage the entity
-                    EntityRef liquidBlock = blockEntityProvider.getBlockEntityAt(loc.getWorldPosition());
+                    EntityRef liquidBlock = blockEntityProvider.getBlockEntityAt(loc.getWorldPosition(new Vector3f()));
                     entity.send(new DoDamageEvent(breather.suffocateDamage, EngineDamageTypes.DROWNING.get(), liquidBlock));
                     // set the next damage time
                     suffocating.nextSuffocateDamageTime = gameTime + breather.timeBetweenSuffocateDamage;
