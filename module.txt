@@ -1,14 +1,20 @@
 {
-    "id": "Breathing",
-    "version": "1.0.0",
-    "author": "Joseph Sessions <Josephtsessions@gmail.com>",
-    "displayName": "Breathing",
-    "description": "Allows entities to breathe and suffocate based on what mediums they are in.",
-    "dependencies": [
-        { "id": "CoreAssets", "minVersion": "2.0.0" },
-        { "id": "Health", "minVersion": "1.0.0" }
-    ],
-    "isServerSideOnly": false,
-    "isLibrary": true,
-    "isAugmentation": true
+  "id": "Breathing",
+  "version": "1.1.0-SNAPSHOT",
+  "author": "Joseph Sessions <Josephtsessions@gmail.com>",
+  "displayName": "Breathing",
+  "description": "Allows entities to breathe and suffocate based on what mediums they are in.",
+  "dependencies": [
+    {
+      "id": "CoreAssets",
+      "minVersion": "2.0.0"
+    },
+    {
+      "id": "Health",
+      "minVersion": "1.0.0"
+    }
+  ],
+  "isServerSideOnly": false,
+  "isLibrary": true,
+  "isAugmentation": true
 }
