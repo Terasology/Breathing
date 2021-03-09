@@ -16,7 +16,7 @@
 package org.terasology.breathing.component;
 
 
-import org.terasology.entitySystem.Component;
+import org.terasology.engine.entitySystem.Component;
 
 public final class UnbreathableBlockComponent implements Component {
 }

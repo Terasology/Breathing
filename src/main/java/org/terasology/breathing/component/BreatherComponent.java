@@ -15,7 +15,7 @@
  */
 package org.terasology.breathing.component;
 
-import org.terasology.entitySystem.Component;
+import org.terasology.engine.entitySystem.Component;
 
 import java.util.Arrays;
 import java.util.List;

@@ -6,13 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.terasology.breathing.component.BreatherComponent;
 import org.terasology.breathing.component.SuffocatingComponent;
-import org.terasology.engine.Time;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.logic.players.LocalPlayer;
-import org.terasology.registry.CoreRegistry;
-import org.terasology.registry.In;
+import org.terasology.engine.core.Time;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.logic.players.LocalPlayer;
+import org.terasology.engine.registry.CoreRegistry;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.layers.hud.CoreHudWidget;
 import org.terasology.nui.databinding.ReadOnlyBinding;
-import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
 import org.terasology.nui.widgets.UIIconBar;
 
 public class BreathingBar extends CoreHudWidget {
