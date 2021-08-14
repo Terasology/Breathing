@@ -21,7 +21,7 @@ public class BreatherComponent implements Component<BreatherComponent> {
     public List<String> breathes = Arrays.asList("Oxygen");
 
     @Override
-    public void copy(BreatherComponent other) {
+    public void copyFrom(BreatherComponent other) {
         this.breathCapacity = other.breathCapacity;
         this.breathRechargeRate = other.breathRechargeRate;
         this.timeBetweenSuffocateDamage = other.timeBetweenSuffocateDamage;

@@ -34,7 +34,7 @@ public class SuffocatingComponent implements Component<SuffocatingComponent> {
     }
 
     @Override
-    public void copy(SuffocatingComponent other) {
+    public void copyFrom(SuffocatingComponent other) {
         this.isBreathing = other.isBreathing;
         this.endTime = other.endTime;
         this.startTime = other.startTime;
