@@ -32,7 +32,6 @@ import org.terasology.engine.entitySystem.systems.UpdateSubscriberSystem;
 import org.terasology.engine.logic.characters.CharacterMovementComponent;
 import org.terasology.engine.logic.characters.events.OnEnterBlockEvent;
 import org.terasology.engine.logic.health.EngineDamageTypes;
-import org.terasology.module.health.events.DoDamageEvent;
 import org.terasology.engine.logic.location.LocationComponent;
 import org.terasology.engine.registry.CoreRegistry;
 import org.terasology.engine.registry.In;
@@ -40,6 +39,7 @@ import org.terasology.engine.world.BlockEntityRegistry;
 import org.terasology.engine.world.WorldProvider;
 import org.terasology.engine.world.block.Block;
 import org.terasology.engine.world.block.BlockManager;
+import org.terasology.module.health.events.DoDamageEvent;
 
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class BreathingSystem extends BaseComponentSystem implements UpdateSubscriberSystem {
