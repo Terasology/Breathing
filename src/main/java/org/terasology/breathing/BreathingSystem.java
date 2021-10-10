@@ -82,7 +82,7 @@ public class BreathingSystem extends BaseComponentSystem implements UpdateSubscr
         }
     }
 
-    @ReceiveEvent(components = {BreatherComponent.class})
+    @ReceiveEvent(components = BreatherComponent.class)
     public void onEnterBlock(OnEnterBlockEvent event, EntityRef entity, BreatherComponent breather) {
         // only trigger org.terasology.breathing if liquid is covering the top of the character (aka,  the head)
         if (isAtHeadLevel(event.getCharacterRelativePosition(), entity)) {
