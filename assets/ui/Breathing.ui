@@ -16,10 +16,12 @@
         "layoutInfo": {
           "use-content-width": true,
           "use-content-height": true,
-          "position-horizontal-center": {},
+          "position-horizontal-center": {
+            "offset": 150
+          },
           "position-bottom": {
             "target": "BOTTOM",
-            "offset": 78
+            "offset": 60
           }
         }
       }
